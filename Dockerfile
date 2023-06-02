@@ -1,20 +1,10 @@
-FROM python:3.7.7-stretch AS BASE
+FROM rasa/rasa:latest AS BASE
 
-RUN apt-get update \
-    && apt-get install \
-        build-essential \
-        curl \
-        git \
-        jq \
-        libgomp1 \
-        vim
 
 WORKDIR /app
 
+USER root
 # upgrade pip version
-RUN pip install --no-cache-dir --upgrade pip
-
-RUN pip install rasa
 RUN pip install openai
 RUN pip install websockets==10.0
 
