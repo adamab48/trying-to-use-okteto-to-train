@@ -11,7 +11,7 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 action_endpoint:
-  url: "https://rasa-actions-server-theamineguesmi.cloud.okteto.net/webhook"
+  url: "https://rasa-actions-server-adamab48.cloud.okteto.net/webhook"
 
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
@@ -27,10 +27,10 @@ action_endpoint:
 
 tracker_store:
     type: mongod
-    url: mongodb+srv://guesmi:4ctFofgKNhItcAW1@cluster0.zyvhc.mongodb.net
-    db: rasa
-    username: guesmi
-    password: 4ctFofgKNhItcAW1
+    url: mongodb+srv://chatbot:chatbot@testingchatbot.pyhbpih.mongodb.net/
+    db: testingChatbot
+    username: chatbot
+    password: chatbot
     use_ssl: true
 
 # Event broker which all conversation events should be streamed to.
