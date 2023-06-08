@@ -16,20 +16,7 @@ services:
       - ./actions:/app/actions
       - ./data:/app/data
       - ./models:/app/models
-    command: rasa train
-    networks:
-      - all
-
-  model-uploader:
-    image: rasa-server-okteto:latest
-    working_dir: /app
-    build: "./"
-    restart: always
-    volumes:
-      - ./models:/app/models
-    command: sh -c "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && aws s3 cp models s3://your-s3-bucket-name/ --recursive"
-    depends_on:
-      - rasa-trainer
+    command: aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && echo Done Config
     networks:
       - all
 
