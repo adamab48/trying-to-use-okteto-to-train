@@ -7,7 +7,7 @@ services:
     networks:
       - all
 
-  rasa:
+  rasa-trainer:
     image: rasa-server-okteto:latest
     working_dir: /app
     build: "./"
@@ -16,8 +16,7 @@ services:
       - ./actions:/app/actions
       - ./data:/app/data
       - ./models:/app/models
-    ports:
-      - '5005:8080' # external:internal
+    command: rasa train
     networks:
       - all
 
@@ -28,7 +27,9 @@ services:
     restart: always
     volumes:
       - ./models:/app/models
-    command: echo $AWS_ACCESS_KEY_ID
+    command: sh -c "aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && aws s3 cp models s3://your-s3-bucket-name/ --recursive"
+    depends_on:
+      - rasa-trainer
     networks:
       - all
 
