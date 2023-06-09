@@ -5,6 +5,7 @@ WORKDIR /app
 
 USER root
 # upgrade pip version
+RUN python -m pip install --upgrade "pip<20"
 RUN pip install openai
 RUN pip install websockets==10.0
 RUN pip install rasa==2.8.12
