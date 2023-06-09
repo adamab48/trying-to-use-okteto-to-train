@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS BASE
+FROM python:3.7 AS BASE
 
 
 WORKDIR /app
