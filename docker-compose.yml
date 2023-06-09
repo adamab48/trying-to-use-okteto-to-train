@@ -30,7 +30,7 @@ services:
       - ./actions:/app/actions
       - ./data:/app/data
       - ./models:/app/models
-    command: aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && echo Done Config && rasa train && chgrp -R root models && chmod -R 770 models && model_name=ls models/*.tar.gz | head -n 1 && aws s3 cp models/$model_name s3://models-doctorsina/
+    command: aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && echo Done Config && rasa train && chmod 777 models && model_name=ls models/*.tar.gz | head -n 1 && aws s3 cp models/$model_name s3://models-doctorsina/
     networks:
       - all
 
