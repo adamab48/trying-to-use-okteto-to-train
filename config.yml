@@ -10,16 +10,16 @@ pipeline:
    min_ngram: 1
    max_ngram: 4
  - name: DIETClassifier
-   epochs: 100
+   epochs: 1
    constrain_similarities: true
  - name: EntitySynonymMapper
  - name: ResponseSelector
-   epochs: 100
+   epochs: 1
  - name: ResponseSelector
-   epochs: 100
+   epochs: 1
    retrieval_intent: faq
  - name: ResponseSelector
-   epochs: 100
+   epochs: 1
    retrieval_intent: chitchat
  - name: DucklingEntityExtractor
    dimensions: ["email", "number"]
