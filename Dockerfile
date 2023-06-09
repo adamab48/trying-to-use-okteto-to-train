@@ -9,3 +9,5 @@ RUN apt install unzip
 RUN unzip awscliv2.zip
 RUN ./aws/install
 RUN chown -R 42420:42420 /app
+
+ENTRYPOINT [""]
