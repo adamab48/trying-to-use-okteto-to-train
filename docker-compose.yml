@@ -25,6 +25,7 @@ services:
     working_dir: /app
     build: "./"
     restart: always
+    user: root
     volumes:
       - ./actions:/app/actions
       - ./data:/app/data
