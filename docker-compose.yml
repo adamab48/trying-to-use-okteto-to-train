@@ -29,7 +29,7 @@ services:
       - ./actions:/app/actions
       - ./data:/app/data
       - ./models:/app/models
-    command: aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && echo Done Config && rasa train && ls && aws s3 cp models s3://models-doctorsina/ --recursive
+    command: aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY && echo Done Config && rasa train && ls models && aws s3 cp models s3://models-doctorsina/ --recursive
     networks:
       - all
 
