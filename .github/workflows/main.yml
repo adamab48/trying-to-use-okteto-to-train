@@ -1,6 +1,9 @@
 name: Model CI
 on: push
 
+env:
+ AWS_DEFAULT_REGION: eu-west-3
+
 jobs:
   build-model:
     name: Build, test, and upload model
