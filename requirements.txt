@@ -1,8 +1,4 @@
-# python
-python==3.7.5
-
-# rasa
-rasa==2.8.1
-rasa-sdk==2.8.1
-
-sqlalchemy<=2.0
+# Requirements for the action server should go in action-server-requirements.txt
+-r action-server-requirements.txt
+rasa[convert]==2.8.12
+pytablewriter
