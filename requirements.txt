@@ -2,3 +2,4 @@
 -r action-server-requirements.txt
 rasa[convert]==2.8.12
 pytablewriter
+protobuf==3.20.*
