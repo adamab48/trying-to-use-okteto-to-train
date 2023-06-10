@@ -28,3 +28,4 @@ jobs:
         aws configure set aws_access_key_id ${{ secrets.AWS_KEY_ID }}
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws s3 sync models s3://${{ secrets.AWS_BUCKET }}/
+        exit 0
