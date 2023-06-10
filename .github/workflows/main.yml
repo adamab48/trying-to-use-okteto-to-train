@@ -23,11 +23,8 @@ jobs:
       run: |
         rasa train
         
-    - uses: actions/checkout@master
-    - uses: shallwefootball/s3-upload-action@master
-      with:
-        aws_key_id: ${{ secrets.AWS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: ${{ secrets.AWS_BUCKET }}
-        source_dir: 'models'
-      
+    - name: Upload Model to S3
+      run: |
+        aws configure set aws_access_key_id ${{ secrets.AWS_KEY_ID }}
+        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws s3 sync models s3://${{ secrets.AWS_BUCKET }}/
