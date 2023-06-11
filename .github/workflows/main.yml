@@ -24,6 +24,7 @@ jobs:
         
     - name: Train model
       run: |
+        cat config.yml
         rasa train
         
     - name: Upload Model to S3
