@@ -4,3 +4,4 @@ rasa
 pytablewriter
 protobuf
 websockets==10.0
+openai
