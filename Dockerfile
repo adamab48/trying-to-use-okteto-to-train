@@ -3,7 +3,7 @@ WORKDIR /app
 USER root
 # upgrade pip version
 RUN pip install openai
-RUN pip install websockets==10.0
+RUN pip install websockets
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN apt install unzip
 RUN unzip awscliv2.zip
