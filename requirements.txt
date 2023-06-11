@@ -1,5 +1,5 @@
 # Requirements for the action server should go in action-server-requirements.txt
 -r action-server-requirements.txt
-rasa==3.1
+rasa[convert]==2.8.12
 pytablewriter
 protobuf==3.20.*
