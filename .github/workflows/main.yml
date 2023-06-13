@@ -33,3 +33,16 @@ jobs:
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws s3 sync models s3://${{ secrets.AWS_BUCKET }}/
         exit 0
+    - id: action_server
+      name: Build an action server with a custom actions
+      uses: RasaHQ/action-server-gha@master
+      # Full list of parameters: https://github.com/RasaHQ/action-server-gha/tree/master#input-arguments
+      with:
+        docker_image_name: 'adamab/rasa-chatbot'
+        docker_registry_login: ${{ secrets.DOCKER_HUB_LOGIN }}
+        docker_registry_password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        # More details about github context:
+        # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
+        #
+        # github.sha - The commit SHA that triggered the workflow run
+        docker_image_tag: ${{ github.sha }}
