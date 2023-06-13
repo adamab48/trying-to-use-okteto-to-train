@@ -1,6 +1,6 @@
 # Requirements for the action server should go in action-server-requirements.txt
 -r action-server-requirements.txt
-rasa
+rasa==2.8.12
 pytablewriter
 protobuf
 websockets==10.0
